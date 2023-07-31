@@ -1,44 +1,21 @@
-from data import *
+import requests
 from configuration import *
 from request_create import *
+import copy
 
-def selection_track(track):
-    url_track = RECEIVE + track
-    return url_track
 
-print(selection_track(get_track(create_new()))) # должно получится v1/orders/track?t=*****
+def copy_track():
+     copy_track_order = copy.deepcopy(create_new())
+     return copy_track_order
 
-# new_user_response = sender_stand_request.create_new_user()
-# auth_headers = sender_stand_request.get_auth_headers(sender_stand_request.get_user_token(new_user_response))
+# def collect_an_order_receipt_request():
 #
 #
-# def create_kit(kz):
-#     return requests.post(configuration.URL + configuration.CREATE_KIT, json=kz,
-#                          headers=auth_headers)
-#
-#
-# # ПОЗИТИВ
-# def poz_test(t):
-#     kit_body_poz_zap = create_kit(t).json()['name']
-#     kit_body_poz_stat = create_kit(t).status_code
-#     assert kit_body_poz_stat == 201
-#     assert kit_body_poz_zap == t['name']
-#
-#
-# # НEГАТИВ
-# def nega_test(t):
-#     kit_body_nega = create_kit(t).status_code
-#     assert kit_body_nega == 400
-
-
-
-
-
-
-
-
-
-
+#     end_point = URL + CREATE_AN_ORDER #+ str(track)
+#     # end_point += str(track)
+#     return end_point
+# # print(collect_an_order_receipt_request(123456))
+print(copy_track)
 
 
 
@@ -54,31 +31,11 @@ print(selection_track(get_track(create_new()))) # должно получитс�
 
 
 #
-# def get_kit_body(kit_name):
-#     current_body = data..copy()
-#     current_body["name"] = kit_name
-#     return current_body
+# url_track = get_track(create_new())
+# recive = RECEIVE + str(url_track)
+# def accept_the_order():
+#     return requests.get(URL + recive)
 #
+# poz_stat = accept_the_order().status_code
 #
-# new_user_response = sender_stand_request.create_new_user()
-# auth_headers = sender_stand_request.get_auth_headers(sender_stand_request.get_user_token(new_user_response))
-#
-#
-# def create_kit(kz):
-#     return requests.post(configuration.URL + configuration.CREATE_KIT, json=kz,
-#                          headers=auth_headers)
-#
-#
-# # ПОЗИТИВ
-# def poz_test(t):
-#     kit_body_poz_zap = create_kit(t).json()['name']
-#     kit_body_poz_stat = create_kit(t).status_code
-#     assert kit_body_poz_stat == 201
-#     assert kit_body_poz_zap == t['name']
-#
-#
-# # НEГАТИВ
-# def nega_test(t):
-#     kit_body_nega = create_kit(t).status_code
-#     assert kit_body_nega == 400
-
+# print(poz_stat)
