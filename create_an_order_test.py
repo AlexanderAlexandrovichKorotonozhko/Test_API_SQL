@@ -1,14 +1,12 @@
-import requests
-import configuration
-import data
-import request
-
+from data import *
+from configuration import *
+from request_create import *
 
 def selection_track(track):
-    url_track = configuration.RECEIVE + track
+    url_track = RECEIVE + track
     return url_track
 
-
+print(selection_track(get_track(create_new()))) # должно получится v1/orders/track?t=*****
 
 # new_user_response = sender_stand_request.create_new_user()
 # auth_headers = sender_stand_request.get_auth_headers(sender_stand_request.get_user_token(new_user_response))

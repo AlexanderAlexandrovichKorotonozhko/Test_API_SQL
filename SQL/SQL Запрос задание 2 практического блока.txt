@@ -1,0 +1,14 @@
+SELECT track,
+CASE
+         WHEN finished = 'f' THEN '2'
+         WHEN finished = 't' THEN '0'
+END,
+CASE
+	WHEN "cancelled" = 'f' THEN '-1'
+	WHEN "cancelled" = 't' THEN '0'
+END,
+CASE
+	WHEN "inDelivery" = 'f' THEN '1'
+	WHEN "inDelivery" = 't' THEN '0'
+END
+FROM "Orders";
