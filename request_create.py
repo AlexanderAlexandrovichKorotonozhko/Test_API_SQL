@@ -1,3 +1,5 @@
+# Александр Коротоножко, 7-я когорта - Финальный проект. Инженер по тестированию плюс
+
 import requests
 from configuration import *
 from data import *
@@ -20,9 +22,6 @@ def accept_the_order():                                                 # Это
 def poz_requests():                                                     # здесь мы говорим что при выполнении функции accept_the_order() ответ должен быть равен 200
     poz_a = accept_the_order()
     assert poz_a == 200
-
-
-
 
 
 def test_requests():                                                    # тест обращяется к функции poz_requests которая в свою очередь поднимает accept_the_order но для ее работы нужен трек который
