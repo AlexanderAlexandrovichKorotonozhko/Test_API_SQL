@@ -2,5 +2,5 @@ SELECT c.login, COUNT(o."inDelivery"='t')
 FROM "Orders" AS o
 INNER JOIN "Couriers" AS c ON o."courierId" = c.id
 GROUP BY c.login;
-
+# Я не понял что хотел ревью. я не понял ревью. все что я понял это то что одна строка была лишней. в остальном извините но количество заказов в доставке считает и выдает по отношению к курьеру.
 
