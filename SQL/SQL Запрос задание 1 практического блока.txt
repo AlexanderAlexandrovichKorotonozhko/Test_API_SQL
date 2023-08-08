@@ -1,4 +1,4 @@
----------------Говно!!!_переделать!!!-------------------------
+---------------Говно!!!_Переделать!!!-------------------------
 SELECT c.login, COUNT(o."inDelivery"='t')
 FROM "Orders" AS o
 INNER JOIN "Couriers" AS c ON o."courierId" = c.id
