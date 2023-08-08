@@ -1,33 +1,40 @@
----------------Говно!!!_Переделать!!!-------------------------
+НЕПРИНЯТЫЙ
+---------------Говно!!!_Переделать!!!------------------------
 SELECT c.login, COUNT(o."inDelivery"='t')
 FROM "Orders" AS o
 INNER JOIN "Couriers" AS c ON o."courierId" = c.id
 GROUP BY c.login;
-____________________________________________________________
+_____________________________________________________________
+На всякий случай
 ---------------те_же_яйца_только_через_ID--------------------
 SELECT c.login, COUNT(o.id)
 FROM "Orders" AS o
 INNER JOIN "Couriers" AS c ON o."courierId" = c.id
-WHERE o."inDelivery"=true
+WHERE o."inDelivery" = 't'
+GROUP BY c.login;
+____________________________________________________________
+Максимально соответствует моему пониманию ТЗ
+---------------те_же_яйца_только_через_inDelivery-----------
+SELECT c.login, COUNT(o."inDelivery")
+FROM "Orders" AS o
+INNER JOIN "Couriers" AS c ON o."courierId" = c.id
+WHERE o."inDelivery" = 't'
 GROUP BY c.login;
 ____________________________________________________________
 
+Если вдруг нужны только заказы на руках, без учета уже доставленных.
+-------------------через_ID_c_удалением_завершенных---------
+SELECT c.login, COUNT(o.id)
+FROM "Orders" AS o
+INNER JOIN "Couriers" AS c ON o."courierId" = c.id
+WHERE o."inDelivery" = 't' AND o.finished = 'f'
+GROUP BY c.login;
+____________________________________________________________
 
-
-id -------------------- индификатор заказа
-"courierId" ----------- доставляет курьер id, закреплено за курьером
-"firstName" ----------- имя
-"lastName" ------------ фамилия
-address --------------- адрес
-"metroStation" -------- станция метро
-phone ----------------- телефон
-"rentTime" ------------ количество дней аренды
-"deliveryDate" -------- дата доставки
-track ----------------- трек номер
-"inDelivery" ---------- в доставке
-color ----------------- цвет
-comment --------------- комментарий
-cancelled ------------- отмененный
-finished -------------- завершенный
-"createdAt" ----------- ХЗ
-"updatedAt" ----------- ХЗ
+------------через_inDelivery_c_удалением_завершенных--------
+SELECT c.login, COUNT(o."inDelivery")
+FROM "Orders" AS o
+INNER JOIN "Couriers" AS c ON o."courierId" = c.id
+WHERE o."inDelivery" = 't' AND o.finished = 'f'
+GROUP BY c.login;
+____________________________________________________________
