@@ -6,26 +6,12 @@ GROUP BY c.login;
 ____________________________________________________________
 ---------------те_же_яйца_только_через_ID--------------------
 SELECT c.login, COUNT(o.id)
-FROM "Couriers" AS c
-LEFT OUTER JOIN "Orders" AS o ON c.id=o."courierId"
+FROM "Orders" AS o
+INNER JOIN "Couriers" AS c ON o."courierId" = c.id
 WHERE o."inDelivery"=true
 GROUP BY c.login;
 ____________________________________________________________
 
-
-
-
-SELECT COUNT(o.id)
-FROM "Orders" AS o
-INNER JOIN "Couriers" AS c ON o."courierId" = c.id
-
-
-
-
-
-
-SELECT COUNT(id)
-FROM "Orders";
 
 
 id -------------------- индификатор заказа
